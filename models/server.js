@@ -1,6 +1,6 @@
 const express = require("express");
 // importando la configuaracion con la bas de datos
-const { dbConnection } = require("../database/config");
+const { dbConnection } = require("../database/config"); // importamos configuracion de coneccion de DB
 const cors = require("cors");
 
 class Server {
@@ -8,6 +8,7 @@ class Server {
     this.app = express();
     this.port = process.env.PORT;
     this.usuariosPath = "/api/usuarios";
+
     // conectar Base de datos
     this.conectarDB();
 

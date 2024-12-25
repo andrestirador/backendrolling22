@@ -1,4 +1,5 @@
 const { Router } = require("express");
+// importamo todas las rutas
 const {
   usuariosGet,
   usuarioPost,
@@ -15,9 +16,9 @@ router.get("/", usuariosGet);
 router.post("/", usuarioPost);
 
 //PUT
-router.put("/", usuarioPut);
+router.put("/:id", usuarioPut);
 
 // DELETE
-router.delete("/", UsuarioDelete);
+router.delete("/:id", UsuarioDelete);
 
 module.exports = router;
