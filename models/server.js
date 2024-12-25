@@ -1,4 +1,6 @@
 const express = require("express");
+// importando la configuaracion con la bas de datos
+const { dbConnection } = require("../database/config");
 const cors = require("cors");
 
 class Server {
@@ -6,12 +8,19 @@ class Server {
     this.app = express();
     this.port = process.env.PORT;
     this.usuariosPath = "/api/usuarios";
+    // conectar Base de datos
+    this.conectarDB();
 
     // middelwares
     this.middlewares();
 
     //Rutas llamado
     this.routes();
+  }
+
+  // funcion para conectar base de datos
+  async conectarDB() {
+    await dbConnection();
   }
 
   //MIDDELWARE - Nos dice donde buscara la pagina principal que s evera en el servidor
